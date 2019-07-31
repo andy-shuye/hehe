@@ -1,0 +1,23 @@
+
+PostMapping("/appApm/getViewMemeoryTop10")
+Msg<?> getViewMemeoryTop10(String app, String os, String version, String startDate, Strint endDate)
+
+PostMapping("/appApm/getViewMemoryInfoList")
+Msg<?> getViewMemoryInfoList(Integer currentPage, Integer currentPageSize, String app, String os, String version, String startDate, String endDate)
+
+17JuniorStu
+1000798
+
+[activity.MainActivity, loader.a.ActivityN1STPNTS5, activity.ParentCommonWebViewActivity, activity.ParentCommonWebViewActivity, loader.a.ActivityN1STPNTS6, loader.a.ActivityN1NRNTS3] 26
+
+2019-07-29%2000:00:00
+
+
+select DISTINCT(ac),count(ac) as warnNums
+from vox_logs_memory 
+where ap='17Parent' 
+and fv='2.11.2.1046' 
+and ac!='unknown'
+group by ac
+order by warnNums DESC
+limit 10
